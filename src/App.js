@@ -4,6 +4,17 @@ import styled, { createGlobalStyle } from 'styled-components'
 const GlobalStyles = createGlobalStyle`
     html {
         box-sizing: border-box;
+
+        /* Variables */
+        @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+        --color-primary-1: hsl(185, 75%, 39%);
+        --color-primary-2: hsl(229, 23%, 23%);
+        --color-primary-3: hsl(227, 10%, 46%);
+        --color-neutral-1: hsl(0, 0%, 59%);
+
+        --body-font-size: 18px;
+        --font-stack: 'Kumbh Sans'
     }
 
     *, ::after, ::before {
@@ -28,18 +39,20 @@ function App() {
     return (
         <>
             <GlobalStyles />
-            Victor Crest         
-            26
-            London
+            <img src="images/image-victor.jpg" alt="Man"/>
 
-            80K
-            Followers
+            <h1>Victor Crest</h1>         
+            <p>26</p>
+            <p>London</p>
 
-            803K
-            Likes
+            <p>80K</p>
+            <h2>Followers</h2>
 
-            1.4K
-            Photos
+            <p>803K</p>
+            <h2>Likes</h2>
+
+            <p>1.4K</p>
+            <h2>Photos</h2>
         </>
     )
 }
