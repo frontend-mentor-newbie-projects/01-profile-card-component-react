@@ -37,7 +37,7 @@ const StyledButton = styled.button`
     letter-spacing: 0.1rem;
 
     color: white;
-    background-color: ${colors.colorPrimary_1};
+    background-color: #0b0b0d;
 
     border: 2px solid white;
     border-radius: 10px;
@@ -54,19 +54,23 @@ const StyledButton = styled.button`
     margin-top: 24px;
 
     &:hover {
-        color: ${colors.colorPrimary_1};
+        color: #ba0000;
         background-color: white;
 
         /* border: 2px solid ${colors.colorPrimary_1}; */
 
         cursor: pointer;
     }
+
+    &:active {
+        outline: none;
+    }
 `
 
 const Content = styled.main`
     font-family: ${fonts.fontFamily};
 
-    background-color: ${colors.colorPrimary_1};
+    background-color: #121316;
 
     display: flex;
 

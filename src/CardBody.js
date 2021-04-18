@@ -5,11 +5,11 @@ import { UserContext } from './App'
 
 const StyledCardBody = styled.section`
         #profile-picture {        
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
 
             border: 5px solid white;
-            border-radius: 50px;
+            border-radius: 60px;
 
             overflow: hidden;
 
@@ -18,10 +18,14 @@ const StyledCardBody = styled.section`
             margin-bottom: 24px;
 
             img {
-                max-width: 100px;
+                max-width: 120px;
                 position: relative;
-                bottom: 8px;
+                bottom: 20px;
                 right: 8px;
+               
+                object-fit: contain;
+
+                filter: grayscale(100%);
             }
         }
 

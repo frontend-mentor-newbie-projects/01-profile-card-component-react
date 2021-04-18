@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyledCardHeader = styled.section`
-  background-image: url('images/bg-pattern-card.svg');
+  /* background-image: url('images/bg-pattern-card.svg'); */
+  background-color: #0b0b0d;
   background-size: cover;
   background-repeat: no-repeat;
 
