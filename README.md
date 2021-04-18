@@ -8,6 +8,7 @@ This project is currently a work in progress using React, styled-components, and
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
   - [Links](#links)
 - [Author](#author)
 
@@ -20,6 +21,10 @@ The [challenge](https://www.frontendmentor.io/challenges/profile-card-component-
 Users should be able to:
 
 - View the optimal layout for the component depending on their device's screen size.
+
+### Screenshot
+
+![My Solution](./solution.png)
 
 ### Links
 
