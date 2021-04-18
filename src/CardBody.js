@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useState, useContext }from 'react'
 import styled from 'styled-components'
+
+import { UserContext } from './App'
 
 const StyledCardBody = styled.section`
         #profile-picture {        
@@ -14,6 +16,13 @@ const StyledCardBody = styled.section`
             margin: 0 auto;
             margin-top: -50px;
             margin-bottom: 24px;
+
+            img {
+                max-width: 100px;
+                position: relative;
+                bottom: 8px;
+                right: 8px;
+            }
         }
 
         #name-age {
@@ -46,17 +55,33 @@ const StyledCardBody = styled.section`
 `
 
 export default function CardBody() {
+    const [firstName, setFirstName] = useState('Cynthia');
+    const [lastName, setLastName] = useState('Mahofa');
+    const [age, setAge] = useState(25);
+    const [location, setLocation] = useState('Johannesburg');
+    const [imageUrl, setImageUrl] = useState('images/image-victor.jpg');
+    const [sex, setSex] = useState('f');
+
+    const checkSex = () => {
+        if (sex === 'f')
+            return 'Woman'
+        if (sex === 'm')
+            return 'Man'
+    }
+
+    const user = useContext(UserContext)
+
     return (
         <StyledCardBody>
             <div id="profile-picture">
-              <img src="images/image-victor.jpg" alt="Man"/>
+              <img src={user.imageUrl} alt={checkSex(sex)}/>
             </div>
 
             <div id="name-age">
-              <h1 id="name">Victor Crest</h1>
-              <p id="age">26</p>
+              <h1 id="name">{user.firstName} {user.lastName}</h1>
+              <p id="age">{user.age}</p>
             </div>
-            <p id="location">London</p>
+            <p id="location">{user.location}</p>
         </StyledCardBody>
     )
 }

@@ -5,7 +5,7 @@ import CardHeader from './CardHeader'
 import CardBody from './CardBody'
 import CardFooter from './CardFooter'
 
-const StyledCard = styled.main`
+const StyledCard = styled.section`
     text-align: center;
 
     width: 350px;

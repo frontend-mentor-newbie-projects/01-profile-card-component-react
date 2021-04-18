@@ -36,21 +36,35 @@ const StyledCardFooter = styled.section`
     }
 `
 
+const getRandomValue = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1)) + min
+}
+
+const generateRandomStats = () => {
+    return {
+        followers: getRandomValue(200, 1000),
+        likes: getRandomValue(20, 50),
+        photos: getRandomValue(1, 25),
+    }
+}
+
 export default function CardFooter() {
+    const stats = generateRandomStats()
+
     return (
         <StyledCardFooter>
             <div className="stat" id="followers">
-                <p>80K</p>
+                <p>{stats.followers}K</p>
                 <h2>Followers</h2>
             </div>
 
             <div className="stat" id="likes">
-                <p>803K</p>
+                <p>{stats.likes}K</p>
                 <h2>Likes</h2>
             </div>
 
             <div className="stat" id="photos">
-                <p>1.4K</p>
+                <p>{stats.photos}K</p>
                 <h2>Photos</h2>
             </div>
         </StyledCardFooter>

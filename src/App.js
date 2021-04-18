@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { createContext, useState } from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
+import axios from 'axios'
 
 import colors from './styles/colors'
 import fonts from './styles/fonts'
+import users from './data/users'
 
 import Card from './Card'
 
@@ -29,33 +31,90 @@ const GlobalStyles = createGlobalStyle`
     }
 `
 
-const Content = createGlobalStyle`
-    body {
-        font-family: ${fonts.fontFamily};
+const StyledButton = styled.button`
+    font-family: ${fonts.fontFamily};
+    font-weight: 700;
+    letter-spacing: 0.1rem;
 
-        background-color: ${colors.colorPrimary_1};
+    color: white;
+    background-color: ${colors.colorPrimary_1};
 
-        display: flex;
+    border: 2px solid white;
+    border-radius: 10px;
+    box-shadow:
+        0  1px  1px  rgba(0,0,0,0.05), 
+        0  2px  2px  rgba(0,0,0,0.05), 
+        0  4px  4px  rgba(0,0,0,0.05),
+        0  8px  8px  rgba(0,0,0,0.05),
+        0  16px 16px rgba(0,0,0,0.05);
 
-        flex-flow: column nowrap;
-        justify-content: center;
-        align-items: center;
+    height: 40px;
+    width: 350px;
 
-        padding: 64px 24px;
-        margin: 0 auto;
+    margin-top: 24px;
 
-        min-height: 667px;
-        height: 100vh;
+    &:hover {
+        color: ${colors.colorPrimary_1};
+        background-color: white;
+
+        /* border: 2px solid ${colors.colorPrimary_1}; */
+
+        cursor: pointer;
     }
 `
 
+const Content = styled.main`
+    font-family: ${fonts.fontFamily};
+
+    background-color: ${colors.colorPrimary_1};
+
+    display: flex;
+
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+    padding: 64px 24px;
+    margin: 0 auto;
+
+    min-height: 667px;
+    height: 100vh;
+`
+
+export const UserContext = createContext()
+
 function App() {
+    const [user, setUser] = useState(users[0]);
+
+    const getUser = () => {
+        /* axios.get('https://randomuser.me/api/')
+        .then(res => {
+            // console.log(res.data.results[0])
+            return res.data.results[0]
+        }) */
+
+        /* fetch('https://randomuser.me/api/')
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+        }) */
+
+        if (users.indexOf(user) === users.length - 1)
+            return setUser(users[0])
+        else
+            return setUser(users[users.indexOf(user) +  1])
+    }
+
     return (
         <>
             <GlobalStyles />
-            <Content />
+            <Content>
+                <UserContext.Provider value={user}>
+                    <Card />
+                </UserContext.Provider>
 
-            <Card />
+                <StyledButton onClick={() => getUser()}>Refresh</StyledButton>
+            </Content>
         </>
     )
 }
